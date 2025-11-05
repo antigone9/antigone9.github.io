@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interests - lou's blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .interest-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .interest-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .interest-card p {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Blog</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="interests.html" class="active">Interests</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>My Interests</h1>
+        
+        <div class="interests-grid">
+            <div class="interest-card">
+                <h3>Writing</h3>
+                <p>Believe it or not, this is what the blog is for. Writing.</p>
+            </div>
+            
+            <div class="interest-card">
+                <h3>Literature</h3>
+                <p>John Green is one of my absolute favorite authors, which is embarassing to admit.</p>
+                <p>Also, Homestuck. There will be a lot of it.</p>
+            </div>
+            
+            <div class="interest-card">
+                <h3>Music</h3>
+                <p>Mostly R&B, Jungle, Breakbeat, EDM, and French rap.</p>
+            </div>
+            
+            <div class="interest-card">
+                <h3>Video games</h3>
+                <p>...And pretending I'm good at them. I'm more into 2D platformers and Bullet Hell type games, although I still haven't really played a Touhou game.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
