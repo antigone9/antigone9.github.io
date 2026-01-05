@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - lou's blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .games-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .game-card p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .game-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">lou's blog</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../interests.html">Music</a></li>
+                <li><a href="../mechanical-pencils.html">Mechanical pencils</a></li>
+                <li><a href="../reviews.html">Reviews</a></li>
+                <li><a href="../games.html" class="active">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="games-container">
+            <h1>Games</h1>
+            <p>A collection of classic games.</p>
+
+            <div class="games-grid">
+                <a href="heatseat/" class="game-card">
+                    <div class="game-icon">🔥</div>
+                    <h3>Heat Seat</h3>
+                    <p>An interactive Flash game. Can you handle the heat?</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 lou's blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
