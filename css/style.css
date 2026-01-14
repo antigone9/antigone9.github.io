@@ -28,11 +28,30 @@
 html, body {
     font-family: "MS Gothic", "MSGothic", "Gulim", sans-serif;
     font-size: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    min-height: 100%;
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: transparent;
     color: #000;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -999;
+    pointer-events: none;
+    background-color: #f0f0f0;
     background-image: 
         linear-gradient(90deg, #ddd 1px, transparent 1px),
         linear-gradient(#ddd 1px, transparent 1px);
@@ -198,12 +217,27 @@ footer {
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.3rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
     }
     
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 0.3rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+        white-space: nowrap;
     }
     
     main {
