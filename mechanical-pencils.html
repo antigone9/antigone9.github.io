@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical pencils - lou's blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="logotest.png" type="image/png">
+    <style>
+        .rankings-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .ranking-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+        .pencil-info {
+            flex: 1;
+        }
+        .pencil-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #333;
+            text-decoration: none;
+        }
+        .pencil-name:hover {
+            text-decoration: underline;
+        }
+        .pencil-tagline {
+            font-size: 18px;
+            font-style: italic;
+            color: #666;
+            margin: 0 0 15px 0;
+        }
+        .score-section {
+            text-align: right;
+            margin-left: 20px;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 10px 0;
+        }
+        .grade {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-bg"></div>
+    <header>
+        <nav>
+            <div class="logo">lou's blog</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="interests.html">Music</a></li>
+                <li><a href="mechanical-pencils.html" class="active">Mechanical pencils</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="yomih.html">YOMIH</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="rankings-container">
+            <h1>MECHANICAL PENCIL RANKINGS</h1>
+            
+            <div class="ranking-item">
+                <div class="pencil-info">
+                    <a href="#" class="pencil-name">Pentel EnerGel Needle-Point 0.5</a>
+                    <h3 class="pencil-tagline">"One Size Fits All"</h3>
+                </div>
+                <div class="score-section">
+                    <div class="score">97</div>
+                    <div class="grade">Nearly Perfect</div>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="pencil-info">
+                    <a href="#" class="pencil-name">Kuru Toga Metal</a>
+                    <h3 class="pencil-tagline">"Pencil Heaven"</h3>
+                </div>
+                <div class="score-section">
+                    <div class="score">94</div>
+                    <div class="grade">Nearly Perfect</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

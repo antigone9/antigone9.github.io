@@ -1,0 +1,247 @@
+@font-face {
+    font-family: 'DS BIOS';
+    src: url('/Nintendo-DS-BIOS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PixeloidSans';
+    src: url('/PixeloidSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PicoChat';
+    src: url('/pictochat.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "MS Gothic", "MSGothic", "Gulim", sans-serif;
+    font-size: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: transparent;
+    color: #000;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -999;
+    pointer-events: none;
+    background-color: #f0f0f0;
+    background-image: 
+        linear-gradient(90deg, #ddd 1px, transparent 1px),
+        linear-gradient(#ddd 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #c0c0c0;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #808080;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: #c0c0c0;
+    border: 2px outset #dfdfdf;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: inset 0 1px 0 #ffffff;
+}
+
+nav a:hover {
+    background-color: #dfdfdf;
+}
+
+nav a:active {
+    border-style: inset;
+}
+
+nav a.active {
+    background-color: #000080;
+    color: #fff;
+    border-color: #000080;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 2px solid #dfdfdf;
+    min-height: 60vh;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #000080;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #000080;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.3rem;
+}
+
+a {
+    color: #000080;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #800080;
+}
+
+main a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #c0c0c0;
+    border: 2px outset #e0e0e0;
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: inset 0 1px 0 #ffffff;
+    margin: 0.25rem;
+}
+
+main a:hover {
+    background: #d0d0d0;
+    box-shadow: inset 0 1px 0 #ffffff;
+}
+
+main a:active {
+    border-style: inset;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    background: #c0c0c0;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.post-preview {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1.5rem;
+}
+
+.post-preview h2 {
+    margin-top: 0;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-preview p {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #c0c0c0;
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid #808080;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    nav ul {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 0.3rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+        white-space: nowrap;
+    }
+    
+    main {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

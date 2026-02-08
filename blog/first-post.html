@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hm. - lou's blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../logotest.png" type="image/png">
+    <style>
+        main {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-bg"></div>
+    <header>
+        <nav>
+            <div class="logo">lou's blog</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../interests.html">Music</a></li>
+                <li><a href="../mechanical-pencils.html">Mechanical pencils</a></li>
+                <li><a href="../reviews.html">Reviews</a></li>
+                <li><a href="../yomih.html">YOMIH</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="post">
+        <article>
+            <h1>bio log </h1>
+            <p class="post-meta">Posted on November 3, 2025</p>
+            <div class="post-content">
+                <p>Et puis, la pluie, s'est mise à tomber. Le plus beau moment de ma vie.</p>
+                <p>L'éternité te défend d'oublier.</p>
+                <p>...4ND JUST1C3 FOR 4LL...</p>
+                <p>turn it around</p>
+                <p>Billiard balls, when struck by the cue ball, will move whether they like it or not.</p>
+                <p>Feelings of the dead, dead ends in my mind//The more I straigthen out, the less it wants to try</p>
+                <p>qui m'a fait mal/doit avoir mal/qui m'a crevé un oeuil/doit devenir borgne/qui a tué/doit enfin mourir</p>
+                <p>discord dump 1// ...4ND JUST1C3 FOR 4LL...// ITS NOT HOW YOU DIE/BUT WHO YOU DIE// Things That Are The Same And How They Occur To People// Learn To Burn</p>
+                <p>not a bio dump but god i wish discord bios were longer!! </p>
+                <p>turning the keys // books, puzzles, and pawns... in that order // Trois flocons, puis quatres / arrivent, puis bien plus. </p>
+                <p>in order, these reference: caliborne's planet quest, class of 09, the greatest author of all time john green and his book turtles all the way down </p>
+                <p>I can see in the dark, you know!// The question is,//Can you?</p>
+                <p> Two sides of the same coin.// Knowing your reflections can help you achieve freedom.</p>
+                <p>steam dump 1// les arbres étaient l'ombre d'eux-mêmes.// Billiard balls, when struck by the cue ball, will move whether they like it or not.// Et puis, la pluie/S'est mise à tomber/Le plus beau moment de ma vie. It broke like a promise// THERE'S NO ROOM FOR A LIVING GHOST, THERE'S NO SPACE FOR A PHANTOM// IT'S NOT HOW YOU DIE, BUT WHO YOU DIE// W3 M4K3 OUR OWN LUCK </p>
+                <p>in order this references//turtles all the way down once again. what can i say? it is simply the best there is// homestuck, more specifically a doc scratch rp account whose acc i forgot :(// Lou!, but the book series, not me//neverender by justice ft tame impala. lots of quotable lyrics in there//homestuck, this time, a fan comic about john dying, whose acc i also forgot :((// turtles all the way down again. heh// homestuck, again. this time an actual line </p>
+                <p>a part of you that refuses not to suck</p>
+                <p>even if you have to tear space time/even if you have to writhe gracefully/find me</p>
+                <p> idr what this one is from, i just have had it in mind </p>
+                <p>When you have a bat, everything looks like a ball.//>It is what a thief does.//>End this.//To toil beyond death itself.</p>
+                <p> discord bio. first is the toby arg shit, second and third is homestuck, fourth is ena dream bbq<333333 so great </p>
+                <p>Will I be, Known and loved?//Is there one, that I trust?//Starting to, Sober up//Has it been, Long enough?//Little closer, Close enough//I'm a loser, Loosen up//Setting free, Must be tough//Any closer? Close enough.</p>
+                <p>Post-chorus from Tame Impala's Borderline. Positively amazing. </p>
+                <p>God, you don't, you don't know how it feels. </p>
+                <p>>hey kid >never got a chance to say >how much i hate you >every last one of you//>It is what a thief does. >End this.//tous les chemins mènent à la dignité//tilted homeless jesus//To toil beyond death itself//Learn To Burn//I serve my queen in her dreams. </p>
+                
+                </p>
+            </div>
+        </article>
+        
+        <p class="special-note">i use naturl's link shortener to log any twitter post ive previously used on my discord account. you can find them by inputting a number. they are in chronological order so 1 is earliest, etc. by the way links 2-4 got shut down and i straight up dont remember what i used. oops!</p>
+        
+        <div class="naturl-linker">
+            <label for="dro-number">https://naturl.link/dro</label>
+            <input type="number" id="dro-number" placeholder="Enter number" min="0">
+            <button id="go-btn" onclick="goToDro()" disabled>Go</button>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const droInput = document.getElementById('dro-number');
+        const goBtn = document.getElementById('go-btn');
+        
+        function goToDro() {
+            const num = droInput.value;
+            if (num) {
+                window.open('https://naturl.link/dro' + num, '_blank');
+            }
+        }
+        
+
+        droInput.addEventListener('input', function() {
+            goBtn.disabled = !this.value;
+        });
+
+        droInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value) {
+                goToDro();
+            }
+        });
+    </script>
+</body>
+</html>

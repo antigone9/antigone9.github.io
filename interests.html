@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interests - lou's blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="logotest.png" type="image/png">
+    <style>
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        .album-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #c0c0c0;
+            border-top: 2px solid #dfdfdf;
+            border-left: 2px solid #dfdfdf;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            box-shadow: inset 1px 1px #fff, inset -1px -1px #808080;
+            padding: 3px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .album-card::before {
+            content: attr(data-title);
+            display: flex;
+            align-items: center;
+            height: 18px;
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: white;
+            font-family: "MS Gothic", "MSGothic", "Gulim", sans-serif;
+            font-weight: bold;
+            font-size: 11px;
+            padding-left: 4px;
+            margin-bottom: 2px;
+            flex-shrink: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .album-card::after {
+            display: none;
+        }
+        
+        .album-card:hover {
+            
+        }
+        
+        .album-card:active {
+            
+        }
+        
+        .album-card a {
+            position: relative;
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: #fff !important;    
+            border: 2px solid;
+            border-color: #808080 #fff #fff #808080;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden;
+        }
+        
+        .album-card a:hover, .album-card a:active {
+            background: #fff !important;
+            border-color: #808080 #fff #fff #808080 !important;
+            border-style: solid !important;
+            border-width: 2px !important;
+        }
+        
+        .album-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.1s ease;
+            filter: brightness(0.95);
+        }
+        
+        .album-card:hover .album-cover {
+            opacity: 0.95;
+            filter: brightness(1);
+        }
+        
+        .album-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.4rem 0.5rem;
+            transform: translateY(100%);
+            transition: transform 0.15s ease-in-out;
+            max-height: 100%;
+            overflow-y: auto;
+            text-shadow: 1px 1px 0 #404040;
+        }
+        
+        .album-comments {
+            font-size: 0.7rem;
+            margin: 0.3rem 0;
+            color: #e0e0e0;
+            font-style: italic;
+        }
+        
+        .album-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 0.3rem;
+            font-size: 0.8rem;
+        }
+        
+        .rating-stars {
+            color: #ffff00;
+            letter-spacing: 0.15em;
+            margin-left: 0.3rem;
+            text-shadow: 1px 1px 0 #404040;
+        }
+        
+        .album-card:hover .album-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .album-title {
+            font-size: 0.8rem;
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 0 #404040;
+            font-family: "MS Gothic", "MSGothic", "Gulim", sans-serif;
+        }
+        
+        .album-artist {
+            font-size: 0.85rem;
+            margin: 0.25rem 0 0;
+            color: #ddd;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .music-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-bg"></div>
+    <header>
+        <nav>
+            <div class="logo">lou's blog</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="interests.html" class="active">Music</a></li>
+                <li><a href="mechanical-pencils.html">Mechanical pencils</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="yomih.html">YOMIH</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Music I Like</h1>
+        
+        <div class="music-grid">
+            <div class="album-card" data-title="Semantics: The Benzo Chronicles">
+                <a href="https://youtube.com/playlist?list=OLAK5uy_n6JbLO7UGHU982Ls6kyLYVXwe8R6jEC0k" target="_blank" rel="noopener noreferrer">
+                    <img src="images/semantics.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Semantics: The Benzo Chronicles</h3>
+                        <p class="song-artist">Goreshit</p>
+                        <div class="song-comments">
+                            The whole album. Absolute kino, from start to finish. Several full listens.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="album-card" data-title="gnb">
+                <a href="https://youtube.com/playlist?list=OLAK5uy_mUqqTYQ9jGEW2QIKbLPYSD6jKoTXN_B-0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/gnb.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">gnb</h3>
+                        <p class="song-artist">Goreshit</p>
+                        <div class="song-comments">
+                            Not nearly as kino as semantics, but still so fucking good. I probably have more relistens on this one, but that's because it's shorter.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★☆</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="album-card" data-title="goretrance 9">
+                <a href="https://youtu.be/og7S-j4Ls7k" target="_blank" rel="noopener noreferrer">
+                    <img src="images/goretrance9.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">goretrance 9</h3>
+                        <p class="song-artist">Goreshit</p>
+                        <div class="song-comments">
+                            I really like those Goreshit songs that are just a really sped up popular song. It's an unfortunate soft spot.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★☆</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+               
+                        <div class="album-card" data-title="Insanely Fast">
+                <a href="https://youtu.be/Bze8bpmU0gI" target="_blank" rel="noopener noreferrer">
+                    <img src="images/splash.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Insanely Fast</h3>
+                        <p class="song-artist">Brian DiLucente</p>
+                        <div class="song-comments">
+                            This is probably what I listen to the most, outside of jungle. Ambient 2000s VGM music is the best. I will post racing game OSTs soon do not even worry ohhhh my god.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                        <div class="album-card" data-title="Make It Look Like An Accident">
+                <a href="https://youtu.be/qbi_FHlt7pU" target="_blank" rel="noopener noreferrer">
+                    <img src="images/pancea.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Make It Look Like An Accident</h3>
+                        <p class="song-artist">Creo</p>
+                        <div class="song-comments">
+                            Creo <3. EDM <33333
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+                                <div class="album-card" data-title="deficit">
+                <a href="https://youtu.be/BwCC5jaAlqI" target="_blank" rel="noopener noreferrer">
+                    <img src="images/deficit.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">deficit</h3>
+                        <p class="song-artist">mindvacy</p>
+                        <div class="song-comments">
+                            i like mindvacy a lot. will post more
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+                                <div class="album-card" data-title="evermore.">
+                <a href="https://youtu.be/XgM_jmGAyjw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/evermore.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">evermore.</h3>
+                        <p class="song-artist">mindvacy</p>
+                        <div class="song-comments">
+                            i have literally nothing to say. i've had an awful headache all day
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+                                <div class="album-card" data-title="WHRLWND">
+                <a href="https://youtu.be/5oux_4rx7mI" target="_blank" rel="noopener noreferrer">
+                    <img src="images/survivorseries.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">WHRLWND</h3>
+                        <p class="song-artist">Kalibr+</p>
+                        <div class="song-comments">
+                            Super underrated album in general. I ordered a cassette 3 years ago and it never came. Damn these ratings are useless
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Born of a Star">
+                <a href="https://youtu.be/jwIWJIdpNFs" target="_blank" rel="noopener noreferrer">
+                    <img src="images/bornofastar.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Born of a Star</h3>
+                        <p class="song-artist">Izar</p>
+                        <div class="song-comments">
+                            TBH i liked the old cover more. sad. good song
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Mr. Kill Myself">
+                <a href="https://youtu.be/RgFaK6ZQifE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/mrkms.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Mr. Kill Myself</h3>
+                        <p class="song-artist">Sewerslvt</p>
+                        <div class="song-comments">
+                            Hey. It's popular for a reason!!
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="exactly nothing">
+                <a href="https://youtu.be/4YAnUGyWZjM" target="_blank" rel="noopener noreferrer">
+                    <img src="images/exactlynothing.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">exactly nothing</h3>
+                        <p class="song-artist">Rory in early 20s</p>
+                        <div class="song-comments">
+                            Extremely rare Rory track worth listening to.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Status">
+                <a href="https://youtu.be/si_6uuQF8ZI" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theuglyart.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Status</h3>
+                        <p class="song-artist">Machine Girl</p>
+                        <div class="song-comments">
+                            Oh HELL yes. I absolutely love Machine Girl, this is probably top 3 tracks oat
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+                                <div class="album-card" data-title="Dance in the Fire">
+                <a href="https://youtu.be/37nIpCH7TPw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/superfreqep.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Dance in the Fire</h3>
+                        <p class="song-artist">Machine Girl</p>
+                        <div class="song-comments">
+                            SUPER FREQ EP is an insane listen. Highly HIGHLY recommend Black Glass as well
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="My Body Cannot Die">
+                <a href="https://youtu.be/_pAmqKFrs0c" target="_blank" rel="noopener noreferrer">
+                    <img src="images/destroyer.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">My Body Cannot Die</h3>
+                        <p class="song-artist">Alec Empire</p>
+                        <div class="song-comments">
+                            I found out about him recently. Really loving his stuff. This was my first introduction, inside a random mix. It's still super good. Highly recommend the rest of his work. He gets an extra rating star
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Scroll Of Sorrow">
+                <a href="https://youtu.be/lQkOqCNChwg" target="_blank" rel="noopener noreferrer">
+                    <img src="images/u-voisynth.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Scroll Of Sorrow</h3>
+                        <p class="song-artist">Machine Girl</p>
+                        <div class="song-comments">
+                            Oops! All Machine Girl! It's not my fault they're so good.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Cloud's quandry">
+                <a href="https://youtu.be/nqYXWRheu8s" target="_blank" rel="noopener noreferrer">
+                    <img src="images/mlsfaw.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Cloud's quandry</h3>
+                        <p class="song-artist">goreshit</p>
+                        <div class="song-comments">
+                            More goreshit. Once again they are simply too good. This is another great, must-listen album overall. As a fun fact, mlsfaw actually has a whole bunch of different covers. The one I used is the standard one used on the redistribution services, which is a slightly edited version of a collage of manga panels. Horse rating.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">horse</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="phantasm of the moon">
+                <a href="https://youtu.be/w2sRVeX33ac" target="_blank" rel="noopener noreferrer">
+                    <img src="images/elucard.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">phantasm of the moon</h3>
+                        <p class="song-artist">Elucard</p>
+                        <div class="song-comments">
+                            Much smaller artists than the other ones mentioned here. I really like his stuff, so I wanted to give him a shoutout. Finding a good picture for the "cover" was a pain though. I ended up using his PFP. Highly recommend his other stuff!! I just linked my personal fav. yfgezefzbzufg rating.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">yfgezefzbzufg</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Twilight's Beginning">
+                <a href="https://youtu.be/LlWmhirZD_Y" target="_blank" rel="noopener noreferrer">
+                    <img src="images/rabbitandsteel.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Twilight's Beginning</h3>
+                        <p class="song-artist">steel plus</p>
+                        <div class="song-comments">
+                            This is honestly in the top 10 videogame OSTs of all time, IMO. Not a single miss. The game itself is also, so fucking good. I love everything about it, other than maybe it's a bit too easy?
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">STEEL YOURSELF!!!!!!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="BREAK THIS THE BREAKING POINT 2">
+                <a href="https://youtu.be/OYrQ9b84KYw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/bttbp2.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">BREAK THIS THE BREAKING POINT 2</h3>
+                        <p class="song-artist">vertigoaway</p>
+                        <div class="song-comments">
+                            Positively epic song. I like vertigoaway a lot, will prob post more. Normal-ass star rating. Gotta mix it up by not mixing it sometimes.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Reverse">
+                <a href="https://youtu.be/-fo-8DWe6gE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/reverse.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Reverse</h3>
+                        <p class="song-artist">Caravan Palace</p>
+                        <div class="song-comments">
+                             I love Caravan Palace!!!!!!!!!!!!!!!!!!! I'm so sad I couldn't go to their Brussels concert :(.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="TT-01">
+                <a href="https://youtu.be/_HZ1jMMd1so" target="_blank" rel="noopener noreferrer">
+                    <img src="images/tt01.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">TT-01</h3>
+                        <p class="song-artist">goreshit</p>
+                        <div class="song-comments">
+                             Allowing myself this goreshit upload because it's niche. !! 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">goretastic!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Semantic Compositions on Death and Its Meaning">
+                <a href="https://youtube.com/playlist?list=OLAK5uy_m7hj_3ptBTWn9w9mzRaOQlHXWx85r1ELU" target="_blank" rel="noopener noreferrer">
+                    <img src="images/semantics2.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Semantic Compositions on Death and Its Meaning</h3>
+                        <p class="song-artist">goreshit</p>
+                        <div class="song-comments">
+                             Ok, how the fuck did I forget this one. Absolute banger, it's basically a continuation of the semantics album. Significantly shorter. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">goretastic!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="long long long journey">
+                <a href="https://youtu.be/0jEm6owSKFU" target="_blank" rel="noopener noreferrer">
+                    <img src="images/longlongj.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">long long long journey</h3>
+                        <p class="song-artist">bill wurtz</p>
+                        <div class="song-comments">
+                              bill wurtz probably isn't a surprise at this point lolol. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">dead</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="DOGMATICA">
+                <a href="https://youtu.be/PRXS2kDFVIY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/dogmatica.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">DOGMATICA</h3>
+                        <p class="song-artist">femtanyl</p>
+                        <div class="song-comments">
+                              femtanyl. i like her a lot. also missed her brussels concert :(
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">over and over, again and again</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Eh Merde !">
+                <a href="https://youtu.be/vbrPYxtz9EM" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ceuxquidorment.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Eh Merde ! </h3>
+                        <p class="song-artist">GIMS</p>
+                        <div class="song-comments">
+                              His very first solo project. Also arguably his best (kinda sad). 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">french</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Du coq à l'âne">
+                <a href="https://youtu.be/xz4MCjJjvKk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ceuxquidorment.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Du coq à l'âne </h3>
+                        <p class="song-artist">GIMS</p>
+                        <div class="song-comments">
+                              I'm so very sorry for this double album feature but I couldn't not mention this absolutely amazing song. Honestly his best work, except maybe outside of 30%. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">french double feature!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Demons Theme">
+                <a href="https://youtu.be/v5RK2i5wdt0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ltjprod.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Demons Theme </h3>
+                        <p class="song-artist">LTJ Bukem</p>
+                        <div class="song-comments">
+                             simply put, the best jungle/dnb artist to have ever existed. i could basically send his entire discography, it is insane stuff. what is even insaner is how LTJ Bukem nearly directly inspired the greatest audiovisual era of games in the 90s, through convoluted schemes of Sony and UK exchanges (see this article for more info: https://pikuma.com/blog/jungle-music-video-game-drum-bass). god i love 90s dnb
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">historical!!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Crucified">
+                <a href="https://youtu.be/di18hTFTwIw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/crucified.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Crucified </h3>
+                        <p class="song-artist">Army of Lovers</p>
+                        <div class="song-comments">
+                             Delightfully weird song. Can't say I fuck with other army of lovers songs tho. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">I cry, I pray, mon Dieu!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Posthumous Forgiveness">
+                <a href="https://youtu.be/44lWO3qhQMk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/slowrush.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Posthumous Forgiveness </h3>
+                        <p class="song-artist">Tame Impala</p>
+                        <div class="song-comments">
+                             isn't it fucked up that thats just a guy and he's named tame impala. borderline is the obvious slow rush pick, so i went niche mode. listen to borderline also!
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">tame</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="Relapse: Refill">
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_kqnbRiiJMlb6v9caQOfJDcoV9mT0yuFl0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/relapseref.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Relapse: Refill </h3>
+                        <p class="song-artist">Eminem</p>
+                        <div class="song-comments">
+                             Eminem's best album by far. I couldn't decide myself on a song, so I linked the album. Also it's a YT Music link because for some reason the official YT Playlist doesn't have the Refill songs. Song recs: Insane, Medicine Ball, Bagpipes from Baghdad
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">★★★★★</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="825 hp">
+                <a href="https://youtu.be/v0ZLguFSlc0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/825.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">825 hp </h3>
+                        <p class="song-artist">Exodia</p>
+                        <div class="song-comments">
+                             cool song
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">four stars, i guess</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="what we did in the desert">
+                <a href="https://youtu.be/dHID5Yv-Z0s" target="_blank" rel="noopener noreferrer">
+                    <img src="images/desert.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">what we did in the desert </h3>
+                        <p class="song-artist">eightiesheadachetape</p>
+                        <div class="song-comments">
+                             i have literally never listened to another song from this artist. maybe i should?
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">i have literally nothing to say</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="The Jungle Witch">
+                <a href="https://youtu.be/4NTa0GRJMN8" target="_blank" rel="noopener noreferrer">
+                    <img src="images/junglewitch.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">The Jungle Witch </h3>
+                        <p class="song-artist">vertigoaway</p>
+                        <div class="song-comments">
+                             this is my favorite vertigoaway song ever ever it is so good. my first one i ever heard too
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">still a good name. seven stars</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Pluto Raving">
+                <a href="https://youtu.be/mCUDrBQ7L-s" target="_blank" rel="noopener noreferrer">
+                    <img src="images/pluto.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Pluto Raving </h3>
+                        <p class="song-artist">strxwberrymilk</p>
+                        <div class="song-comments">
+                             literally don't know who this is. what's up with all these one hit wonders
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">any name riffing on sewerslvt is bound to suck, i have a lot to say about names!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Synchro Destruction Wave">
+                <a href="https://youtu.be/7GC2fxKPhM4" target="_blank" rel="noopener noreferrer">
+                    <img src="images/synchrodes.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Synchro Destruction Wave </h3>
+                        <p class="song-artist">vertigoaway</p>
+                        <div class="song-comments">
+                             more vertigoaway oh yes
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">good name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="SPIRIT">
+                <a href="https://youtu.be/TFnVUSOhWZE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/spirit.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">SPIRIT </h3>
+                        <p class="song-artist">valtis</p>
+                        <div class="song-comments">
+                             i like rally house a lot, even if it gets a bit repetitive
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">decent name. it's unique, at least</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Chômeur Showman">
+                <a href="https://youtu.be/tO98Z7-_VVc" target="_blank" rel="noopener noreferrer">
+                    <img src="images/chomeur.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Chômeur Showman </h3>
+                        <p class="song-artist">Hippocampe Fou</p>
+                        <div class="song-comments">
+                             more french stuff. i really like this guy, hes pretty unique
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">godawful name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Casseurs Flowters Infinity">
+                <a href="https://youtu.be/tYdwajzKMck" target="_blank" rel="noopener noreferrer">
+                    <img src="images/civ.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Casseurs Flowters Infinity </h3>
+                        <p class="song-artist">orelsan</p>
+                        <div class="song-comments">
+                             orelsan is such an insane guy, and casseurs flowters is such an insane group. lots of great history. this one and bloqué stand out as partiuclarly big pillars of their story tho.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">actually pretty good name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="turn it around">
+                <a href="https://youtu.be/Tg1CjFh6s8E" target="_blank" rel="noopener noreferrer">
+                    <img src="images/splitshit.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">turn it around </h3>
+                        <p class="song-artist">goreshit</p>
+                        <div class="song-comments">
+                             actually insane track like what the hell
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">goreshit is a solid name but unfortunately its noun adjective and i cant support that :/</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Neverender">
+                <a href="https://youtu.be/E7FU_mqhFGk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/neverender.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Neverender </h3>
+                        <p class="song-artist">Justice ft Tame Impala</p>
+                        <div class="song-comments">
+                             these two are actually a match made in heaven. one night/all night is also great, highly reccomend both
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">justice is an s tier name, tame impala is adj noun so it goes to hell tier</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Terminer">
+                <a href="https://youtu.be/xwSWI0Unzuk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/marquisduneant.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Terminer </h3>
+                        <p class="song-artist">Marquis du Néant</p>
+                        <div class="song-comments">
+                             as you can probably guess, I absolutely love the Lou! Sonata albums. Like come on now be for real. But Marquis du Néant in particular stands out as sounding.. Real?
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">Banging name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="GOD RACE">
+                <a href="https://youtu.be/zKaoDdNZhJE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/godrace.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">GOD RACE </h3>
+                        <p class="song-artist">META ROOM</p>
+                        <div class="song-comments">
+                             very fun! my fav non dream bbq ena track tbh
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">no opinion on this name i am neutral</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Run">
+                <a href="https://youtu.be/O-aL2SBMD6Y" target="_blank" rel="noopener noreferrer">
+                    <img src="images/run.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Run </h3>
+                        <p class="song-artist">MADMADMAD</p>
+                        <div class="song-comments">
+                             discovered recently. i will listen to more
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">lower than average</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="HIT ME">
+                <a href="https://youtu.be/XX61Ze6rfRk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/HITME.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">HIT ME </h3>
+                        <p class="song-artist">Malchezzar</p>
+                        <div class="song-comments">
+                             i genuinely love mashups like this. i have been staving off from posting them here because finding a good cover is fucking impossible but i can't not
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">what the fuck</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Discord">
+                <a href="https://youtu.be/xPfMb50dsOk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/discord.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Discord </h3>
+                        <p class="song-artist">Eurobeat Brony</p>
+                        <div class="song-comments">
+                            another classic that i cant not put here i mean come on now
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">hell tier</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Swinging In His Cell">
+                <a href="https://youtu.be/CKNP6fzTGxw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/dls.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Swinging In His Cell </h3>
+                        <p class="song-artist">Sewerslvt</p>
+                        <div class="song-comments">
+                            this album is kind of amazing. really good ambient tracks and fire samples. kinda got overshadowed by her massive single hits sadly
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">fine</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="La tête à ça">
+                <a href="https://youtu.be/xiUQtV5fl2I" target="_blank" rel="noopener noreferrer">
+                    <img src="images/consistance.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">La tête à ça </h3>
+                        <p class="song-artist">Krystal Zealot ft Consistance</p>
+                        <div class="song-comments">
+                            more lou
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">godly</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="opalesce">
+                <a href="https://youtu.be/rPg8sGkma70" target="_blank" rel="noopener noreferrer">
+                    <img src="images/bomberbacks.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">opalesce </h3>
+                        <p class="song-artist">DM DOKURO</p>
+                        <div class="song-comments">
+                            at least.. i think? i know you can just send the siivagunner people whatever data you want so it might not be accurate?? anyways the track is banging
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">really good name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Black">
+                <a href="https://youtu.be/5NACWZBDtN8" target="_blank" rel="noopener noreferrer">
+                    <img src="images/Black.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Black </h3>
+                        <p class="song-artist">Toby Fox</p>
+                        <div class="song-comments">
+                            one of the best songs in homestuck. it's also conveniently used for one of the best moments in homestuck!
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">radioactive!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Double Jump">
+                <a href="https://youtu.be/_nPIk3y4jrA" target="_blank" rel="noopener noreferrer">
+                    <img src="images/doublejump.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Double Jump </h3>
+                        <p class="song-artist">Joey Valence & Brae</p>
+                        <div class="song-comments">
+                            these guys are really cool. kinda reminds me of smash mouth in the vibes and aesthetic
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">simple. i like it</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Killed by BR8K Spider!!!!!!!!">
+                <a href="https://youtu.be/KpnY41JNVbo" target="_blank" rel="noopener noreferrer">
+                    <img src="images/br8kspider.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Killed by BR8K Spider!!!!!!!! </h3>
+                        <p class="song-artist">toby fox</p>
+                        <div class="song-comments">
+                            isnt it crazy that toby made like 10 homestuck tracks and just leitmotif'd the fuck out of a million other tracks. like he put those 10 in a blender and pressed the mix button. anyways this is really good it has all the awesome aspects of vriskas other themes and (ambiguously) megalovania
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">toby "radiation" fox</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                <div class="album-card" data-title="M' Arrêter">
+                <a href="https://youtu.be/VuW9itHLvl0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ceuxquidorment.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">M' Arrêter </h3>
+                        <p class="song-artist">GIMS</p>
+                        <div class="song-comments">
+                              His very first solo project, again. My god, it is genuinely so great. I promise this is the last one (for now..) 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">french</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Oh My God">
+                <a href="https://youtu.be/jywguq_wW80" target="_blank" rel="noopener noreferrer">
+                    <img src="images/omg.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Oh My God </h3>
+                        <p class="song-artist">Masta Artisan</p>
+                        <div class="song-comments">
+                              Great song. A tragic epic. I feel his pain. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">awful. try better</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Rape Me">
+                <a href="https://youtu.be/RXJhsO3yCUU" target="_blank" rel="noopener noreferrer">
+                    <img src="images/poopin.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Rape Me </h3>
+                        <p class="song-artist">Toxic Lipstick</p>
+                        <div class="song-comments">
+                              Toxic Lipstick is an Australian shock band. This song is about one of the group member's trauma. I like the band a lot, I discovered them recently. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">adj noun is a big no no!</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="d.i.b.">
+                <a href="https://youtu.be/JWt6RQEOTDk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/wiw.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">d.i.b. </h3>
+                        <p class="song-artist">goreshit</p>
+                        <div class="song-comments">
+                              Another just, amazing goreshit album. It kind of hits the same highs as semantics but it's nicher. Please listen to the whole album. I implore you.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">not feeling it today</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="I Make The World Spin">
+                <a href="https://youtu.be/awECajKA61Q" target="_blank" rel="noopener noreferrer">
+                    <img src="images/haywire.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">I Make The World Spin </h3>
+                        <p class="song-artist">Hopsin</p>
+                        <div class="song-comments">
+                              Hopsin is cool. I like his ill mind series
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">below average</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="anemoia">
+                <a href="https://youtu.be/Q0guReRtGWI" target="_blank" rel="noopener noreferrer">
+                    <img src="images/anemoia.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">anemoia </h3>
+                        <p class="song-artist">Oliver Buckland</p>
+                        <div class="song-comments">
+                              Genuinely amazing track. ENA Dream BBQ is the game of this generation
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> normal ass name. ENA Dream BBQ is an S+++ tier name tho</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Trunk Fiction">
+                <a href="https://youtu.be/6ATutas0NGg" target="_blank" rel="noopener noreferrer">
+                    <img src="images/trunkfic.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Trunk Fiction </h3>
+                        <p class="song-artist">2 Mello</p>
+                        <div class="song-comments">
+                              this song feels like the very core of my soul itself is getting relaxed
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> very good name</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="how do you think?">
+                <a href="https://youtu.be/u3w4FCTcfME" target="_blank" rel="noopener noreferrer">
+                    <img src="images/dob.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">how do you think? </h3>
+                        <p class="song-artist">Date of Birth</p>
+                        <div class="song-comments">
+                              date of birth is apparently a japanese rock band who got a psx tie in game. that is so ridiculously cool
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> extremely good, impressed</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Pink flame">
+                <a href="https://youtu.be/c1yOJwIyLsc" target="_blank" rel="noopener noreferrer">
+                    <img src="images/pinkf.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Pink flame </h3>
+                        <p class="song-artist">Nuvfr</p>
+                        <div class="song-comments">
+                              i like it, but it is a bit repetitive :(
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> below average, i dont like the gibberish name thing</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Bill Watterson">
+                <a href="https://youtu.be/UTaszc1Q6eY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/viewm.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Bill Watterson </h3>
+                        <p class="song-artist">Lemon Demon</p>
+                        <div class="song-comments">
+                              prob my second fav view-monster song
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> technically double noun name, i get to rank it in the midtier</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Sundial">
+                <a href="https://youtu.be/tdbhU7EHAhc" target="_blank" rel="noopener noreferrer">
+                    <img src="images/viewm.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Sundial </h3>
+                        <p class="song-artist">Lemon Demon</p>
+                        <div class="song-comments">
+                              this is without a doubt my fav lemon demon song ever, it is just so so good. this is a triple feature because all of these songs have wildly different vibes and just putting them in one description feels wrong lol
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> technically double noun name, i get to rank it in the midtier</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Marketland">
+                <a href="https://youtu.be/CeCIIpODnfw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/viewm.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Marketland </h3>
+                        <p class="song-artist">Lemon Demon</p>
+                        <div class="song-comments">
+                               this one is also really great, it has a nice rhythm. i swear im done with view-monster now
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> technically double noun name, i get to rank it in the midtier</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="The Eyes Of Truth">
+                <a href="https://youtu.be/UukrfHmWmuY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/enigma.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">The Eyes Of Truth </h3>
+                        <p class="song-artist">Enigma</p>
+                        <div class="song-comments">
+                              hearing this play on the multiMAN screen as a kid.. chills
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> one of the better noun names. Below average though</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="Hey Kids">
+                <a href="https://youtu.be/D3VpepnO0gw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/heykids.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Hey Kids </h3>
+                        <p class="song-artist">Molina</p>
+                        <div class="song-comments">
+                              i like it! i have literally nothing else to say about this song
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> molina. really?</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="ACT RIGHT">
+                <a href="https://youtu.be/f1iwhiebHLA" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ACTRIGHT.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">ACT RIGHT </h3>
+                        <p class="song-artist">femtanyl</p>
+                        <div class="song-comments">
+                              remarkable entry in femtanyl's discography. prob my favorite "high energy" song
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars"> it's decent</span>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="album-card" data-title="FW16">
+                <a href="https://youtu.be/yTzDhAp3IhM" target="_blank" rel="noopener noreferrer">
+                    <img src="images/FW16.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">FW16 </h3>
+                        <p class="song-artist">RXDER</p>
+                        <div class="song-comments">
+                              I've been on a real rally house kick recently. Expect more.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">Really?</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="LIQUOR STORE">
+                <a href="https://youtu.be/QlQotjTDqOs" target="_blank" rel="noopener noreferrer">
+                    <img src="images/liquorstore.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">LIQUOR STORE </h3>
+                        <p class="song-artist">Adi T</p>
+                        <div class="song-comments">
+                              What kind of genre is this? Ambient, I guess? It's nice to listen to.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">literally just a normal ass name. is this a joke?</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="POPOPOP">
+                <a href="https://youtu.be/H_rZMgS5nE4" target="_blank" rel="noopener noreferrer">
+                    <img src="images/POPOPOP.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">POPOPOP </h3>
+                        <p class="song-artist">Gambi</p>
+                        <div class="song-comments">
+                              I have a super weird deja vu of having already covered this song. I listen to it often, even though I'm not very into French rap (modern one, at least).
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">When I first heard this name, I just assumed it was someone talking about Childish Gambino</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="GBYE">
+                <a href="https://youtu.be/8_K7PI5y-j4" target="_blank" rel="noopener noreferrer">
+                    <img src="images/machinedrum.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">GBYE </h3>
+                        <p class="song-artist">Machinedrum</p>
+                        <div class="song-comments">
+                              Oh my God. What the absolute fuck. If you have to listen to One song on this page, this is the one.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">Decent</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Duvet">
+                <a href="https://youtu.be/Uoox9fpmDP0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/boa.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Duvet</h3>
+                        <p class="song-artist">Bôa</p>
+                        <div class="song-comments">
+                              In my sad girl era. 
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">Let's serious real here</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Dire, Dire Docks">
+                <a href="https://youtu.be/CH97oY2pZpg" target="_blank" rel="noopener noreferrer">
+                    <img src="images/sm64.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Dire, Dire Docks</h3>
+                        <p class="song-artist">Koji Kondo</p>
+                        <div class="song-comments">
+                              One of my favorite SiIvaGunner rips no questions asked
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">fine</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="The Hub">
+                <a href="https://youtu.be/xFOKmlp8_Gc" target="_blank" rel="noopener noreferrer">
+                    <img src="images/edbbq.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">The Hub</h3>
+                        <p class="song-artist">Ippei Torii</p>
+                        <div class="song-comments">
+                              I don't remember if I've already talked about Ena Dream BBQ here? I know I wrote Anemoia down at some point, which is an intro track. Anyhow this one is amazing. Listen to Main Menu too when you have the chance!
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">9/10</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="The Days When My Mother Was There">
+                <a href="https://youtu.be/it5wuAgf1Pw" target="_blank" rel="noopener noreferrer">
+                    <img src="images/P5OST.webp" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">The Days When My Mother Was There</h3>
+                        <p class="song-artist">I don't know? Some guy at Atlus.</p>
+                        <div class="song-comments">
+                              I myself am not the biggest P5 girlie but this track is beautiful.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">one thousand stars</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="GRRRLS">
+                <a href="https://youtu.be/nF3dKA9CCQE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/grrrls.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">GRRRLS</h3>
+                        <p class="song-artist">AViVA</p>
+                        <div class="song-comments">
+                        </div>I first heard this song in a pink diamond animatic and that was pretty much my introduction to the concept of music
+                        <div class="song-rating">be serious
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="TROU">
+                <a href="https://youtu.be/kuDTNS5ia3I" target="_blank" rel="noopener noreferrer">
+                    <img src="images/terminus.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">TROU</h3>
+                        <p class="song-artist">Hippocampe Fou</p>
+                        <div class="song-comments">
+                        </div>Amazing opening track. probably his best
+                        <div class="song-rating">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="A Thousand Things I Could Tell You">
+                <a href="https://youtube.com/playlist?list=OLAK5uy_kdhnZzfkgCXc7ZCdASbbYkjL9xtWhoNdE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/attticty.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">A Thousand Things I Could Tell You</h3>
+                        <p class="song-artist">xxtarlit</p>
+                        <div class="song-comments">
+                        </div>Just listen to the whole album. Oh my god. Amazing.
+                        <div class="song-rating">Fine
+                        </div>
+                    </div>
+                </a>
+            </div>
+                <div class="album-card" data-title="Eureka">
+                    <a href="https://youtube.com/playlist?list=OLAK5uy_kaFHcMBs3pETTMa8_pGZEnCYnOfXBLuCs" target="_blank" rel="noopener noreferrer">
+                        <img src="images/eureka.jpg" alt="Album Cover" class="album-cover">
+                        <div class="album-info">
+                            <h3 class="song-title">Eureka</h3>
+                            <p class="song-artist">Mother Mother</p>
+                            <div class="song-comments">
+                                Mother Mother's greatest album. Not a single miss. O My Heart has a few songs that would make me go ok maybe it's not perfect but this album here genuinely has no bad song. This one gets a high rating
+                            </div>
+                            <div class="song-rating">
+                                Rating: <span class="rating-stars">Masterclass tbh</span>
+                            </div>
+                        </div>
+                    </a>
+             </div>
+                <div class="album-card" data-title="I'm Sure We'll Be Alright">
+                    <a href="all-songs.html" target="_blank" rel="noopener noreferrer">
+                        <img src="images/imsurewellbealright.jpg" alt="Album Cover" class="album-cover">
+                        <div class="album-info">
+                            <h3 class="song-title">I'm Sure We'll Be Alright</h3>
+                            <p class="song-artist">Pavlot</p>
+                            <div class="song-comments">
+                                I thought this guy was lost media for like, a good few months. Turns he just deleted all his old accounts to reupload stuff on DJBABYGOAT. Let's get fucking real here. Thankfully, I can host whatever I'd like!
+                            </div>
+                            <div class="song-rating">
+                                Rating: <span class="rating-stars">Pavlot: 10/10. DJBABYGOAT: 5. TBH I kinda like it but I'm still salty about that.</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <div class="album-card" data-title="Job Application">
+                <a href="https://youtu.be/7lGVgRGBDw0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/jobapp.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Job Application</h3>
+                        <p class="song-artist">Chase Icon</p>
+                        <div class="song-comments">
+                            Really groovy track. I found out about it from a Class of '09 meme on Twitter. Here's the link if anyone wants it https://x.com/aka_goshhhh/status/2011542796164039028
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">i'm.. not sure that's the real name? sounds like a placeholder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Peak and Bounce">
+                <a href="https://youtu.be/uenU7kvkGpY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/peakandbounce.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Peak and Bounce</h3>
+                        <p class="song-artist">Pilotredsun</p>
+                        <div class="song-comments">
+                            I don't know how I feel about listening to these tracks without a Patreon subscription.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">it's cool</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Everybody's Circulation">
+                <a href="https://youtu.be/RQmEERvqq70" target="_blank" rel="noopener noreferrer">
+                    <img src="images/everybodyscirculation.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Everybody's Circulation</h3>
+                        <p class="song-artist">TMABird</p>
+                        <div class="song-comments">
+                            OK hear me out on this one..
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">i like it; in a neutral way. something like a C+</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Slown Down">
+                <a href="https://youtu.be/83w4FgVkjUE" target="_blank" rel="noopener noreferrer">
+                    <img src="images/slowdown.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Slown Down</h3>
+                        <p class="song-artist">Bill Wurtz</p>
+                        <div class="song-comments">
+                            I'm going to hell and I'm paid for ittttttttttttt
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">really good. i like it a lot. great name</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Anybody Can Find Love (except you.)">
+                <a href="https://youtu.be/h7I8FqXUKHo" target="_blank" rel="noopener noreferrer">
+                    <img src="images/anybodycanfindlove.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Anybody Can Find Love (except you.)</h3>
+                        <p class="song-artist">hkmori</p>
+                        <div class="song-comments">
+                            This is one of the classics.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">Shortened version of hikkikomori? Lame. Unimaginative.</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Squid Melody">
+                <a href="https://youtu.be/Rmea5ET_n9g" target="_blank" rel="noopener noreferrer">
+                    <img src="images/squidmelody.png" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Squid Melody</h3>
+                        <p class="song-artist">The Living Tombstone</p>
+                        <div class="song-comments">
+                            OK hear me out on this. I swear it's good!!!!
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">lame oh my god lame lame lame</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="album-card" data-title="Hi High (Remix)">
+                <a href="https://youtu.be/JVilaNmHPLY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/HiHigh.jpg" alt="Album Cover" class="album-cover">
+                    <div class="album-info">
+                        <h3 class="song-title">Hi High (Remix)</h3>
+                        <p class="song-artist">Sewerslvt</p>
+                        <div class="song-comments">
+                            I was searching for this song for 1+ year. One day it just, showed up in my music feed. I feel so blessed to be able to relisten to the song that goes "oo a oo a oo a" once again.
+                        </div>
+                        <div class="song-rating">
+                            Rating: <span class="rating-stars">I like it, very imaginative. The longer I have to rank these names, the more I rank previous names because I realize they're way better than the current scumfuck I have to deal with.</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

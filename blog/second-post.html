@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caliborn - lou's blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../logotest.png" type="image/png">
+    <style>
+        main {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-bg"></div>
+    <header>
+        <nav>
+            <div class="logo">lou's blog</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../interests.html">Music</a></li>
+                <li><a href="../mechanical-pencils.html">Mechanical pencils</a></li>
+                <li><a href="../reviews.html">Reviews</a></li>
+                <li><a href="../yomih.html">YOMIH</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="post">
+        <article>
+            <h1>who is caliborn?</h1>
+            <p class="post-meta">November 3, 2025</p>
+            <div class="post-content">
+                <p>May be the start of a series of sort, analyzing various characters? Dunno.</p>
+                <p>So, recently, I finished Homestuck. I loved it (still haven't finished beyond canon or anything past it :/)! And I want to talk about some of the more.. contrived characters and plot elements of the comic.</p>
+                <p>Dead future</p>
+        </article>
+    </main>
+
+    <style>
+        .caliborn-follower {
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease-out, left 0.1s linear, top 0.1s linear;
+            transform-origin: center center;
+            will-change: transform, left, top;
+        }
+        
+        .caliborn-follower img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+        
+        .caliborn-follower.active {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+    </style>
+    <div class="caliborn-follower" id="calibornFollower"></div>
+    <script>
+        const follower = document.getElementById('calibornFollower');
+        let isActive = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        let spriteIndex = 0;
+        
+        const sprites = [
+            '../images/calibwalk1.png',
+            '../images/calibwalk2.png'
+        ];
+        
+        sprites.forEach((sprite, index) => {
+            const img = document.createElement('img');
+            img.src = sprite;
+            img.alt = `Caliborn ${index + 1}`;
+            img.style.display = index === 0 ? 'block' : 'none';
+            follower.appendChild(img);
+        });
+        
+        let lastFrameTime = 0;
+        const frameDuration = 200; 
+        
+        function animate(currentTime) {
+            if (!lastFrameTime) lastFrameTime = currentTime;
+            const deltaTime = currentTime - lastFrameTime;
+            
+            if (deltaTime > frameDuration) {
+                spriteIndex = (spriteIndex + 1) % sprites.length;
+                Array.from(follower.children).forEach((img, i) => {
+                    img.style.display = i === spriteIndex ? 'block' : 'none';
+                });
+                lastFrameTime = currentTime;
+            }
+            
+            const lagFactor = 0.1; 
+            const dx = (mouseX - followerX) * lagFactor;
+            const dy = (mouseY - followerY) * lagFactor;
+            
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const easeFactor = Math.min(1, distance / 10); 
+            
+            followerX += dx * easeFactor;
+            followerY += dy * easeFactor;
+            
+            const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            follower.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scale(${isActive ? '1.5' : '1'})`;
+            follower.style.left = `${followerX}px`;
+            follower.style.top = `${followerY}px`;
+            
+            requestAnimationFrame(animate);
+        }
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            if (!isActive) {
+                isActive = true;
+                requestAnimationFrame(animate);
+            }
+        });
+        
+        document.addEventListener('mousedown', () => {
+            follower.classList.add('active');
+        });
+        
+        document.addEventListener('mouseup', () => {
+            follower.classList.remove('active');
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
